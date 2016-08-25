@@ -1,0 +1,65 @@
+1. Hvað er ECMAScript?
+
+	Svar : ECMAScript er skriftumál sem er notað í skirftum sem keyra á biðlara, og sú þekktasta útfærsla staðalsins er Javascript.
+
+2. Afhverju að nota === fremur en == í Javascript?
+
+	Svar : Því == checkar bara á gildinn á tvem hlutum á meðan === checkar á gildi og tegund hlutarins (Semsagt bara strangari samanburður).
+
+3. Hvað kemur út og hvaða type (sjá typeof operator)?
+
+	a) var result = 5 * "5";
+
+		Svar : Int = 25
+	
+	b) var result = 5 + "5";
+
+		Svar : String = 55
+
+4. Hvað eru margar global breytur í kóðanum?
+
+	var text = 'Hello Scope';
+
+	var sum = 0;
+
+	for(var i=0 i < 10; i++){
+		sum += i;
+	}
+
+	console.log( sum );
+
+		Svar : Það eru 2 global functions
+
+5. Hver er munurinn á A og B? útskýrðu hvað "use strict" gerir.
+
+	Svar : B mun gefa þér Bad Syntex á meðan A mun gefa þér Error, Strict mode gerir svo að þú getur ekki notað ólýstar breytur, ef notað er use strict í byrjun kóðans
+	þá mun allt vera í strict mode, og ef sett er strict mode í virka þá hefur það staðbundinn virkleika.
+
+6. Hver er munurinn á null og undefined í notkun?
+
+	Svar : undefined er sitt eigið type og það þýðir að breyta hefur verið lýst en hefur ekki neitt gildi, á meðan null er boject, og getur verið útlýst í ekkert gildi.
+
+7. Gerðu kóðann skilvirkari og rökstuddu breytinguna!
+
+	Svar : 	var names = ['George','Ringo','Paul','John'];
+			for(var i=0,j=names.length;i<j;i++){
+				doSomethingWith(names[i]);
+			}
+
+8. Hver er munurinn á for of, forEach og for in lykkju. Komdu með dæmi?
+
+	Svar : for in eru lykkjur yfir óteljanlegum property names af einhverju object, for of loop-ar yfir sérstaka values og munurinn með forEach er að það þú ert ekki með aðgang að index, t.d for (int i = 0; i < array.length; i++){
+																																																	if(i < 5) {
+																																																		//eitthva
+																																																	}
+																																																	//eitthva
+																																																}
+9. Hvað er NaN og afhverju er eftirfarandi false?
+	console.log(NaN == NaN);
+
+		Svar : NaN stendur fyrir "Not a Number", báðar hliðar af NaN == NaN halda sama gildi og af númer gerð, en ekki sú sama sem leiðir að false.
+
+10. Hvað birtist (úttak)? Útskyrðu hvers vegna.
+console.log(null || "user")
+
+	Svar : || lætur það reyna skrifa út fyrra kallið, en það er null þannig það tekur svona næsta sem er "user".
