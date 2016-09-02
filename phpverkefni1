@@ -1,0 +1,143 @@
+1. Hver er munurinn á echo() og print()
+
+	Svar : 	Echo er sögð vera hraðari því það skilar ekki neinu gildi, og print() hegður sér eins og function sem lætur það geta gert fleiri flókna expressions.
+
+2. Hver er munurinn á einföldum gæsalöppum og tvöföldum, sýndu mér kóðadæmi sem sýnir mismunandi niðurstöðu
+
+	Svar : Einföld gæsalöpp er bara plain text sem hefur enga sérstaka tilfellingu annað en tvöfalda gæsalöppin sem er með breytu innskot (t.d echo "Halló $name"; ) og getur líka gert raðir eins og "\n".
+
+3. Hvað er $GLOBALS, hvernig virkar það, komdu með dæmi.
+
+	Svar : Það tilvísar allar breytur sem eru í bði global scope. 
+	t.d ef $foo = "eitthvað"; þá geturu kallað á það með echo '$GLOBALS["foo"]';
+
+4. Hvenær myndir þú nota === virkjann fremur en ==, komdu með dæmi.
+
+	Svar : == checkar bara hvort það séu alveg eins values, annað en strict (===) sem checkar values og ef það er af sama gerð.
+	$a == $b kemur út sem Equal
+	$a === $b kemur út sem Identical.
+
+5. printf() er sniðugt af tveimur ástæðum hverjar eru þær? komdu einnig með kóðadæmi.
+
+	Svar : 
+
+6. Hvað skrifar eftirfarandi kóði? (útskýrðu línu fyrir línu)
+	$a = 1;  //Breytan a verður að 1
+	$b = $a++;	//Breytan b skilur inn 1 og verður að 2
+	$c = ++$a;	//Breytan c verður að 3 og skilar inn 3
+	echo $a . $b . $c;
+
+	Svar : 313
+
+7. Gefið er eftirfarandi array, hvaða skipun má gefa til að fá fjölda stakanna í $array, að stökunum í innra fylkinu meðtöldum?
+	$array = array("a","b",array("d","e"),"f");
+
+	Svar : Sleppa!
+
+8. Búðu til nefnt fylki (Associative array) með eftirfarandi borgum og löndum; Japan -Tokyo, Mexico -Mexico City, USA - New York City, India - Mumbai, Korea - Seoul, China - Shanghai. Notið foreach til að birta Lönd og borgir.
+
+$array = array("Japan"=>"Tokyo", "Mexico"=>"Mexico City", "USA"=>"New York City", "India"=>"Mumbai", "Korea"=>"Seoul", "China"=>"Shanghai");
+
+	Svar :	foreach($array as $x => $x_value){
+				echo $x . " - " . $x_value;
+				echo "<br>";
+			}
+
+
+9. Notaðu echo og list() til að birta á skjá eftrifarandi gildi úr $colors.
+
+	$colors = array("red","blue","green");
+
+	Svar : 	$colors = array("red","blue","green");
+			list($color1, $color2, $color3) = $colors;
+			echo "Fyrsti liturinn er $color1, svo er það $color2, og svo $color3";
+
+
+10. Gefið er fylkið $states = array("Texas", "Ohio"); Bættu við aftast New York og bættu við fremst California. (notaðu innbyggt php fall til að ná þessu fram)
+
+	Svar : 	$states = array("Texas", "Ohio");
+			array_unshift($states,"California");
+			array_push($states,"New York");
+			print_r($states);
+
+11 Notaðu shuffle() fallið á fylkið $states og birtu útkomuna
+
+	Svar : 	shuffle($states);
+			print_r($states);
+
+12. Birtu í töfluformi (html) eftirfarandi gögn úr fylkinu $products.
+	<?php
+		$products = array( array ( "08:10", "10:30", "13:15"), 
+					array ( "GSÖ2B2U", "VSH2B2U", "FOR2B2U"), 
+					array ( "GUS", "GJG", "GRL") );
+	
+
+if (count($products) > 0):
+		<table>
+	     <tr>
+	       <td>Klukkan</td>
+	       <td>Afangi</td>
+	       <td>Kennari</td>
+	     </tr>
+	      foreach ($products as $row) : 
+	     <tr>
+	       <td> echo $row[0]; </td>
+	       <td> echo $row[1]; </td>
+	       <td> echo $row[2]; </td>
+	     </tr>
+	      endforeach; 
+   		</table>
+
+	 endif;
+
+13.  Gefið er eftirfarandi 	
+
+		$customers fylki sem geymir önnur fylki (2d array):
+		$customers[] = array("Jason Gilmore", "jason@example.com", "614-999-9999");
+		$customers[] = array("Jesse James", "jesse@example.net", "818-999-9999");
+		$customers[] = array("Donald Duck", "donald@example.org", "212-999-9999");
+
+Notaðu foreach og vprintf() til að birta öll gögnin á eftirfarandi sniði:
+
+	<p>
+		Name: Jason Gilmore<br />
+		E-mail: jason@example.com <br />
+		Phone: 614-999-9999
+	</p>
+
+	Svar : 	<?php
+			$customers[] = array("Jason Gilmore", "jason@example.com", "614-999-9999");
+			$customers[] = array("Jesse James", "jesse@example.net", "818-999-9999");
+			$customers[] = array("Donald Duck", "donald@example.org", "212-999-9999");
+
+			for($x = 0; $x < 3; $x++){
+				foreach ($customers[$x] as $value) {
+				echo "$value <br>";
+				}
+			}
+
+14.  Hver er útkoman með að nota a) sort() fallið og hinsvegar natcasesort() á $pic?
+
+	$pic = array("pic2.jpg", "PIC10.jpg", "pic20.jpg", "pic1.jpg");
+
+	Svar : 	$pic = array("pic2.jpg", "PIC10.jpg", "pic20.jpg", "pic1.jpg");
+			sort($pic);
+			print_r($pic);
+
+		útkoma : Array ( [0] => PIC10.jpg [1] => pic1.jpg [2] => pic2.jpg [3] => pic20.jpg ) //Raða frá hægsta til lægsta semsagt Case Sensitive
+
+	$pic = array("pic2.jpg", "PIC10.jpg", "pic20.jpg", "pic1.jpg");
+			natcasesort($pic);
+			print_r($pic);
+
+		útkoma : Array ( [3] => pic1.jpg [0] => pic2.jpg [1] => PIC10.jpg [2] => pic20.jpg ) //Raða frá lægsta til hæsta semsagt case insensitive
+
+15. Hvað er HTTP, hvað þýðir að það sé stateless (útskýrðu).
+
+	Svar : (HTTP) er forrit siðareglur sem er notað fyrir dreifingu, samstarf og tengimiðlun upplýsingakerfa.
+			HTTP er stateless því hver skipun er keyrð sjálfstæð.
+
+16. http://www.tskoli.is
+	http er protocol-ið, www er world wide web sem hýsir allar vefsíður og net upplýsingar (geymir ekki gögn), tskoli er domain nafnið og .is er domainið.
+
+17. Server side scripting virkar þannig að serverinn keyrir script þar sem útkoman frá því sendist til notandanns, scriptan keyrir ekki í vafranum eins og með venjulegar scriptur heldur á servernum sjálfum.
